@@ -6,8 +6,7 @@ import {AppComponent} from './app.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import {ComponentsModule} from './components/components.module';
 
 @NgModule({
   declarations: [
@@ -18,11 +17,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     BrowserAnimationsModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
-    FlexLayoutModule
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
