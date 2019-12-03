@@ -16,9 +16,12 @@
     "@angular/compiler": "~9.0.0-rc.3",
     "@angular/core": "~9.0.0-rc.3",
     "@angular/forms": "~9.0.0-rc.3",
+    "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~9.0.0-rc.3",
     "@angular/platform-browser-dynamic": "~9.0.0-rc.3",
+    "@angular/pwa": "^0.803.20",
     "@angular/router": "~9.0.0-rc.3",
+    "@angular/service-worker": "~9.0.0-rc.3",
     "rxjs": "~6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
