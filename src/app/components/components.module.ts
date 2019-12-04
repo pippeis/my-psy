@@ -2,12 +2,27 @@ import {NgModule} from '@angular/core';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {DataService} from './dashboard/data.service';
-import {MatCardModule, MatIconModule, MatListModule, MatSidenavModule, MatTableModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatTableModule,
+  MatToolbarModule
+} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CommonModule} from '@angular/common';
+import {AuthService} from './auth.service';
+import {PostDialogComponent} from './post-dialog/post-dialog.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
+    CommonModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -15,9 +30,14 @@ import {CommonModule} from '@angular/common';
     FlexLayoutModule,
     MatCardModule,
     MatTableModule,
-    CommonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule
   ],
   exports: [
+    CommonModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -25,14 +45,20 @@ import {CommonModule} from '@angular/common';
     FlexLayoutModule,
     MatCardModule,
     MatTableModule,
-    CommonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule
   ],
   declarations: [
     WelcomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    PostDialogComponent
   ],
   providers: [
-    DataService
+    DataService,
+    AuthService
   ]
 })
 export class ComponentsModule {
