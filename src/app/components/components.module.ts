@@ -18,6 +18,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {CommonModule} from '@angular/common';
 import {PostDialogComponent} from './post-dialog/post-dialog.component';
 import {FormsModule} from '@angular/forms';
+import {UserComponent} from '@app/components/user/user.component';
+import {HomeComponent} from '@app/components/home/home.component';
 
 @NgModule({
   imports: [
@@ -53,7 +55,9 @@ import {FormsModule} from '@angular/forms';
   declarations: [
     WelcomeComponent,
     DashboardComponent,
-    PostDialogComponent
+    PostDialogComponent,
+    UserComponent,
+    HomeComponent
   ],
   providers: [
     DataService

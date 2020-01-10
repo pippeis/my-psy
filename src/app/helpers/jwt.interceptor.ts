@@ -3,9 +3,7 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/com
 import {Observable} from 'rxjs';
 import {AuthService} from '@app/services/auth.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class JWTInterceptor implements HttpInterceptor {
 
   constructor(private authService: AuthService) {

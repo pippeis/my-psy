@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable, of, throwError} from 'rxjs';
 import {User} from '@app/models/user';
 import {delay, dematerialize, materialize, mergeMap} from 'rxjs/operators';
@@ -13,9 +13,7 @@ const USERS: User[] = [
 
 const TOKEN = 'fake-jwt-token';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return of(null)
@@ -87,3 +85,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
   }
 }
+
+export let fakeBackendProvider = {
+  // use fake backend in place of Http service for backend-less development
+  provide: HTTP_INTERCEPTORS,
+  useClass: FakeBackendInterceptor,
+  multi: true
+};
+

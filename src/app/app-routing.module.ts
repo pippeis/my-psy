@@ -5,27 +5,25 @@ import {DashboardComponent} from '@app/components/dashboard/dashboard.component'
 import {UserComponent} from '@app/components/user/user.component';
 import {AuthGuard} from '@app/helpers/auth.guard';
 import {HomeComponent} from '@app/components/home/home.component';
-import {PageNotFoundComponent} from '@app/components/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
+  {path: '', component: WelcomeComponent},
   {
-    path: '', component: WelcomeComponent, children: [
-      {
-        path: 'auth', children: [
-          {path: '', redirectTo: 'auth/home', pathMatch: 'full'},
-          {path: 'home', component: HomeComponent},
-          {path: 'users', component: UserComponent},
-          {path: 'dashboard', component: DashboardComponent}
-        ], canActivate: [AuthGuard]
-      }
+    path: 'auth', canActivate: [AuthGuard], children: [
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: 'home', component: HomeComponent},
+      {path: 'users', component: UserComponent},
+      {path: 'dashboard', component: DashboardComponent}
     ]
   },
-  {path: '**', component: PageNotFoundComponent},
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'top'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

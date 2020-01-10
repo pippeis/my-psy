@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('init dashboard');
   }
 
   openDialog(): void {

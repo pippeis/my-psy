@@ -4,17 +4,11 @@
     <div class="container">
       <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center"
            class="content">
-        <div class="blocks" *ngIf="auth.isAuthenticated()">
+        <div class="blocks">
           <button type="submit" mat-raised-button color="primary" (click)="openDialog()">
             <mat-icon>add</mat-icon>
             Add Post
           </button>
-        </div>
-        <div class="blocks">
-          <a button mat-raised-button color="primary" (click)="auth.login()" *ngIf="!auth.isAuthenticated()">
-            <mat-icon>input</mat-icon>
-            Login to Add Post
-          </a>
         </div>
       </div>
     </div>
