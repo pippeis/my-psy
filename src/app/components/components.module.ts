@@ -16,7 +16,6 @@ import {
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CommonModule} from '@angular/common';
-import {AuthService} from './auth.service';
 import {PostDialogComponent} from './post-dialog/post-dialog.component';
 import {FormsModule} from '@angular/forms';
 
@@ -57,8 +56,7 @@ import {FormsModule} from '@angular/forms';
     PostDialogComponent
   ],
   providers: [
-    DataService,
-    AuthService
+    DataService
   ]
 })
 export class ComponentsModule {

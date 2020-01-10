@@ -3,7 +3,7 @@ import {DataService} from './data.service';
 import {DataSource} from '@angular/cdk/collections';
 import {Observable} from 'rxjs';
 import {Post} from './post.model';
-import {AuthService} from '../auth.service';
+import {AuthService} from '@app/services/auth.service';
 import {PostDialogComponent} from '../post-dialog/post-dialog.component';
 import {MatDialog} from '@angular/material';
 
