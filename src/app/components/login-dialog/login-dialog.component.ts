@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 import {AuthService} from '@app/services/auth.service';
 
@@ -8,7 +8,6 @@ import {AuthService} from '@app/services/auth.service';
   styleUrls: ['./login-dialog.component.scss']
 })
 export class LoginDialogComponent implements OnInit {
-  public event: EventEmitter<any> = new EventEmitter();
   username: string;
   password: string;
 
