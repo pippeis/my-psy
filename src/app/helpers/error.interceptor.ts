@@ -3,11 +3,13 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/com
 import {AuthService} from '@app/services/auth.service';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import {MatDialog} from '@angular/material';
+import {ErrorDialogComponent} from '@app/components/error-dialog/error-dialog.component';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private dialog: MatDialog) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -18,6 +20,11 @@ export class ErrorInterceptor implements HttpInterceptor {
       }
 
       const error = err.error.message || err.statusText;
+      this.dialog.open(ErrorDialogComponent, {
+        width: '600px',
+        data: error
+      });
+
       return throwError(error);
     }));
   }
