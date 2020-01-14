@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('init dashboard');
   }
 
   openDialog(): void {
@@ -35,13 +34,10 @@ export class DashboardComponent implements OnInit {
   }
 
   deletePost(id) {
-    if (this.auth.isAuthenticated()) {
-      this.dataService.deletePost(id);
-      this.dataSource = new PostDataSource(this.dataService);
-    } else {
-      alert('Login in Before');
-    }
+    this.dataService.deletePost(id);
+    this.dataSource = new PostDataSource(this.dataService);
   }
+
 }
 
 export class PostDataSource extends DataSource<any> {

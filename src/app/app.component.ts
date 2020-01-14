@@ -14,18 +14,4 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  login(): void {
-    const username = 'admin';
-    const password = 'admin';
-    this.authService.login(username, password).subscribe();
-  }
-
-  logout(): void {
-    this.authService.logout();
-  }
-
-  isAuthenticated(): boolean {
-    return this.authService.isAuthenticated();
-  }
 }

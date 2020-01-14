@@ -1,0 +1,12 @@
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-form > * {
+  width: 100%;
+}
+
+.close {
+  width: 100%;
+}

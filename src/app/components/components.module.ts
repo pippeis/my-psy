@@ -20,6 +20,9 @@ import {PostDialogComponent} from './post-dialog/post-dialog.component';
 import {FormsModule} from '@angular/forms';
 import {UserComponent} from '@app/components/user/user.component';
 import {HomeComponent} from '@app/components/home/home.component';
+import {HeaderComponent} from './header/header.component';
+import {RouterModule} from '@angular/router';
+import {LoginDialogComponent} from './login-dialog/login-dialog.component';
 
 @NgModule({
   imports: [
@@ -35,7 +38,8 @@ import {HomeComponent} from '@app/components/home/home.component';
     MatDialogModule,
     MatInputModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
     CommonModule,
@@ -50,16 +54,20 @@ import {HomeComponent} from '@app/components/home/home.component';
     MatDialogModule,
     MatInputModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    HeaderComponent
   ],
   declarations: [
     WelcomeComponent,
     DashboardComponent,
     PostDialogComponent,
     UserComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    LoginDialogComponent
   ],
   providers: [
+    // TODO: remove me
     DataService
   ]
 })
