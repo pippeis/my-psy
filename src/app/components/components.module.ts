@@ -23,6 +23,7 @@ import {HomeComponent} from '@app/components/home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {RouterModule} from '@angular/router';
 import {LoginDialogComponent} from './login-dialog/login-dialog.component';
+import {InvoiceComponent} from './invoice/invoice.component';
 
 @NgModule({
   imports: [
@@ -64,7 +65,8 @@ import {LoginDialogComponent} from './login-dialog/login-dialog.component';
     UserComponent,
     HomeComponent,
     HeaderComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    InvoiceComponent
   ],
   providers: [
     // TODO: remove me
