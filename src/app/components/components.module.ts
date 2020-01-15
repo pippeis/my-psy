@@ -25,6 +25,7 @@ import {RouterModule} from '@angular/router';
 import {LoginDialogComponent} from './login-dialog/login-dialog.component';
 import {InvoiceComponent} from './invoice/invoice.component';
 import {ErrorDialogComponent} from './error-dialog/error-dialog.component';
+import {UserDialogComponent} from './user-dialog/user-dialog.component';
 
 @NgModule({
   imports: [
@@ -68,7 +69,8 @@ import {ErrorDialogComponent} from './error-dialog/error-dialog.component';
     HeaderComponent,
     LoginDialogComponent,
     InvoiceComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    UserDialogComponent
   ],
   providers: [
     // TODO: remove me
