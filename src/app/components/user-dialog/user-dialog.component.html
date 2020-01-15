@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>User</h1>
+<div mat-dialog-content>
+  <form class="dialog-form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Username" type="text" required [(ngModel)]="user.username" name="username">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="First Name" type="text" required [(ngModel)]="user.firstName" name="first-name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Last Name" type="text" required [(ngModel)]="user.lastName" name="last-name">
+    </mat-form-field>
+    <!--    <mat-form-field>-->
+    <!--      <mat-select matInput placeholder="User Role" required [(ngModel)]="role" name="user-role">-->
+    <!--        <mat-option *ngFor="let r of roles" [value]="r.value">-->
+    <!--          {{ r.viewValue }}-->
+    <!--        </mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+    <button mat-raised-button type="submit" color="primary">Save</button>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="close" (click)="onNoClick()" color="warn">Cancel</button>
+</div>

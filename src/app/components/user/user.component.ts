@@ -3,8 +3,8 @@ import {Observable} from 'rxjs';
 import {DataSource} from '@angular/cdk/collections';
 import {User} from '@app/models/user';
 import {UserService} from '@app/services/user.service';
-import {PostDialogComponent} from '@app/components/post-dialog/post-dialog.component';
 import {MatDialog} from '@angular/material';
+import {UserDialogComponent} from '@app/components/user-dialog/user-dialog.component';
 
 @Component({
   selector: 'app-user',
@@ -22,19 +22,16 @@ export class UserComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(PostDialogComponent, {
-      width: '600px',
-      data: 'Add User'
+    const dialogRef = this.dialog.open(UserDialogComponent, {
+      width: '600px'
     });
-    dialogRef.componentInstance.event.subscribe((result) => {
-      this.userService.addUser(result.data);
-      this.dataSource = new UserDataSource(this.userService);
+    dialogRef.componentInstance.addUser.subscribe((result) => {
+      this.userService.addUser(result).subscribe(() => this.dataSource = new UserDataSource(this.userService));
     });
   }
 
   deleteUser(id) {
-    this.userService.deleteUser(id);
-    this.dataSource = new UserDataSource(this.userService);
+    this.userService.deleteUser(id).subscribe(() => this.dataSource = new UserDataSource(this.userService));
   }
 }
 
