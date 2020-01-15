@@ -4,7 +4,7 @@ import {Observable, of, throwError} from 'rxjs';
 import {User} from '@app/models/user';
 import {delay, dematerialize, materialize, mergeMap} from 'rxjs/operators';
 
-const USERS: User[] = [
+let USERS: User[] = [
   {id: 1, username: 'admin', password: 'admin', firstName: 'Admin', lastName: 'UserAdmin'},
   {id: 2, username: 'test1', password: 'test', firstName: 'Test1', lastName: 'User1'},
   {id: 3, username: 'test2', password: 'test', firstName: 'Test2', lastName: 'User2'},
@@ -29,9 +29,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         case req.url.endsWith('/users') && req.method === 'GET':
           return getUsers();
         case req.url.endsWith('/users') && req.method === 'PUT':
-          return addUser(req.body.user);
-        case req.url.endsWith('/users/*') && req.method === 'DELETE':
-          return deleteUser(req.body.user.id);
+          return addUser(req.body);
+        case req.url.indexOf('/users/') !== -1 && req.method === 'DELETE':
+          const id = req.url.substring(req.url.lastIndexOf('/') + 1);
+          return deleteUser(Number(id));
         default:
           // pass through any requests not handled above
           return next.handle(req);
@@ -65,7 +66,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     function deleteUser(id: number) {
       const user = USERS.find(value => value.id === id);
-      return ok(USERS.slice(USERS.indexOf(user, 0), 1));
+      USERS.splice(USERS.indexOf(user), 1);
+      return ok(USERS);
     }
 
     function ok(body?): Observable<HttpResponse<any>> {
