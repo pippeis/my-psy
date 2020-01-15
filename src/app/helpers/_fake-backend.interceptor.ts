@@ -4,7 +4,7 @@ import {Observable, of, throwError} from 'rxjs';
 import {User} from '@app/models/user';
 import {delay, dematerialize, materialize, mergeMap} from 'rxjs/operators';
 
-let USERS: User[] = [
+const USERS: User[] = [
   {id: 1, username: 'admin', password: 'admin', firstName: 'Admin', lastName: 'UserAdmin'},
   {id: 2, username: 'test1', password: 'test', firstName: 'Test1', lastName: 'User1'},
   {id: 3, username: 'test2', password: 'test', firstName: 'Test2', lastName: 'User2'},
