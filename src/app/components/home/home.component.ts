@@ -7,6 +7,7 @@ import {SpinnerService} from '@app/components/spinner-overlay-wrapper/spinner.se
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  showSpinner = false;
 
   constructor(private spinnerService: SpinnerService) {
   }
@@ -17,5 +18,10 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       self.spinnerService.hide();
     }, 5000);
+  }
+
+  doStuff() {
+    this.showSpinner = true;
+    setTimeout(() => this.showSpinner = false, 5000);
   }
 }
