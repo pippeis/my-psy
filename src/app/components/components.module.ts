@@ -26,6 +26,9 @@ import {LoginDialogComponent} from './login-dialog/login-dialog.component';
 import {InvoiceComponent} from './invoice/invoice.component';
 import {ErrorDialogComponent} from './error-dialog/error-dialog.component';
 import {UserDialogComponent} from './user-dialog/user-dialog.component';
+import {SpinnerComponent} from './spinner/spinner.component';
+import {SpinnerWrapperComponent} from './spinner-wrapper/spinner-wrapper.component';
+import {SpinnerOverlayWrapperComponent} from '@app/components/spinner-overlay-wrapper/spinner-overlay-wrapper.component';
 
 @NgModule({
   imports: [
@@ -70,7 +73,10 @@ import {UserDialogComponent} from './user-dialog/user-dialog.component';
     LoginDialogComponent,
     InvoiceComponent,
     ErrorDialogComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    SpinnerComponent,
+    SpinnerWrapperComponent,
+    SpinnerOverlayWrapperComponent
   ],
   providers: [
     // TODO: remove me
