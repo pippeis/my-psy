@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/my-psy/api',
-  dbURL: 'mongodb://http://localhost:27017'
+  apiUrl: 'http://localhost:8080/my-psy/api'
 };
 
 /*

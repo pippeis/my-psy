@@ -15,5 +15,3 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 }
-
-export const apiName = '/my-psy/api';
